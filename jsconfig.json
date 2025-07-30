@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "checkJs": true, // optional, gives type warnings in JS files
+    "allowJs": true,
+    "baseUrl": ".", // optional: allows absolute imports from root
+    "types": ["jest", "node"] // tells VS Code to use Jest and Node types
+  },
+  "exclude": ["node_modules"]
+}
