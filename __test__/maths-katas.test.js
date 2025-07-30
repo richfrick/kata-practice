@@ -4,6 +4,7 @@ const {
   raiseToPower,
   formatMoney,
   calculateCircleArea,
+  calculateFullTurns,
 } = require('../katas/precourse/maths-katas');
 
 describe('Precourse Mats Katas', () => {
@@ -70,7 +71,7 @@ describe('Precourse Mats Katas', () => {
     });
   });
 
-  describe.only('Calculate Circle Area', () => {
+  describe('Calculate Circle Area', () => {
     test('Should be a function', () => {
       expect(typeof calculateCircleArea).toBe('function');
     });
@@ -85,6 +86,27 @@ describe('Precourse Mats Katas', () => {
     test('should return the area of a circle with radius "r" to 3 decimal places', () => {
       const result = calculateCircleArea(1);
       expect(result).toEqual(3.142);
+    });
+  });
+  describe('Calculate the number of full turns from an input of degrees', () => {
+    test('should be a function', () => {
+      expect(typeof calculateFullTurns).toBe('function');
+    });
+    test('should return 0 if given degress less than 360', () => {
+      const result = calculateFullTurns(10);
+      expect(result).toBe(0);
+    });
+    test('should return 1 if given 360 degrees', () => {
+      const result = calculateFullTurns(360);
+      expect(result).toBe(1);
+    });
+    test('should return correct number of full turns as a whole number', () => {
+      const result = calculateFullTurns(360);
+      expect(Number.isInteger(result)).toBe(true);
+    });
+    test('should return correct number of full turns as a whole number for multiple full turns', () => {
+      const result = calculateFullTurns(1500);
+      expect(result).toBe(4);
     });
   });
 });
