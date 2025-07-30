@@ -18,10 +18,15 @@ function calculateCircleArea(radius) {
   return Number((Math.PI * radius ** 2).toFixed(3));
 }
 
+function calculateFullTurns(noOfDegrees) {
+  return Number((noOfDegrees / 360).toFixed(0));
+}
+
 module.exports = {
   modulo,
   squareRoot,
   raiseToPower,
   formatMoney,
   calculateCircleArea,
+  calculateFullTurns,
 };
