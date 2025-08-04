@@ -2,4 +2,8 @@ function getLength(string) {
   return string.length;
 }
 
-module.exports = { getLength };
+function putNamesTogether(firstName, surname) {
+  return `${firstName} ${surname}`;
+}
+
+module.exports = { getLength, putNamesTogether };
