@@ -30,7 +30,7 @@ describe('Precourse Conditional Logic Katas', () => {
       expect(result).toBe(false);
     });
   });
-  describe.only('Values are not equal to', () => {
+  describe('Values are not equal to', () => {
     test('Is a function', () => {
       expect(typeof areNotEqualTo).toBe('function');
     });
