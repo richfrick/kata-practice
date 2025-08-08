@@ -6,4 +6,10 @@ function putNamesTogether(firstName, surname) {
   return `${firstName} ${surname}`;
 }
 
-module.exports = { getLength, putNamesTogether };
+function capitaliseString(string) {
+  if (typeof string === 'string') {
+    return string[0].toUpperCase() + string.slice(1);
+  }
+}
+
+module.exports = { getLength, putNamesTogether, capitaliseString };
