@@ -1,6 +1,7 @@
 const {
   getLength,
   putNamesTogether,
+  capitaliseString,
 } = require('../katas/precourse/string-katas');
 
 describe('String Katas', () => {
@@ -40,6 +41,36 @@ describe('String Katas', () => {
     test('should return correct full name', () => {
       const result = putNamesTogether('foo', 'bar');
       expect(result).toBe('foo bar');
+    });
+  });
+  describe('Capitalisation on strings', () => {
+    test('should be a function', () => {
+      expect(typeof capitaliseString).toBe('function');
+    });
+    test('does not change the input', () => {
+      const input = 'test';
+      capitaliseString(input);
+      expect(input).toBe('test');
+    });
+    test('works with a single character string', () => {
+      const input = 'a';
+      const result = capitaliseString(input);
+      expect(result).toBe('A');
+    });
+    test('works with a whole word', () => {
+      const input = 'test';
+      const result = capitaliseString(input);
+      expect(result).toBe('Test');
+    });
+    test('works with a works with a sentence', () => {
+      const input = 'this is a test';
+      const result = capitaliseString(input);
+      expect(result).toBe('This is a test');
+    });
+    test('ignores non string inputs', () => {
+      const input = 1;
+      const result = capitaliseString(input);
+      expect(result).toBe(undefined);
     });
   });
 });
