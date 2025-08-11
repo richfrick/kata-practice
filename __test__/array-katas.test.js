@@ -1,6 +1,7 @@
 const {
   getEvenNumbers,
   getItemsLongerThan,
+  getLastItems,
 } = require('../katas/precourse/array-katas');
 
 describe('Array Katas', () => {
@@ -66,6 +67,48 @@ describe('Array Katas', () => {
       const result = getItemsLongerThan(input, 3);
 
       expect(input).not.toBe(result);
+      expect(result).toEqual([]);
+    });
+  });
+  describe('Get last items', () => {
+    test('Should be a function', () => {
+      expect(typeof getLastItems).toBe('function');
+    });
+    test('does not alter the input', () => {
+      const input = [1, 2, 3, 4, 5];
+      const result = getLastItems(input, 1);
+      expect(input).toEqual([1, 2, 3, 4, 5]);
+      expect(input[0]).not.toBe(result[0]);
+      expect(input).not.toBe(result);
+    });
+    test('should return an empty array if n = 0', () => {
+      const input = [1, 2, 3, 4, 5];
+      const result = getLastItems(input, 0);
+      expect(result).toEqual([]);
+    });
+    test('should return an array with the last item of the passed array if n = 1', () => {
+      const input = [1, 2, 3, 4, 5];
+      const result = getLastItems(input, 1);
+      expect(result).toEqual([5]);
+    });
+    test('should return an array with the n last items of the passed array', () => {
+      const input = [1, 2, 3, 4, 5];
+      const result = getLastItems(input, 3);
+      expect(result).toEqual([3, 4, 5]);
+    });
+    test('should return all array items if n = the original array length', () => {
+      const input = [1, 2, 3, 4, 5];
+      const result = getLastItems(input, 5);
+      expect(result).toEqual([1, 2, 3, 4, 5]);
+    });
+    test('should return all array items if n > the original array length', () => {
+      const input = [1, 2, 3, 4, 5];
+      const result = getLastItems(input, 10);
+      expect(result).toEqual([1, 2, 3, 4, 5]);
+    });
+    test('should return an empty array if n < the original array length', () => {
+      const input = [1, 2, 3, 4, 5];
+      const result = getLastItems(input, -10);
       expect(result).toEqual([]);
     });
   });
