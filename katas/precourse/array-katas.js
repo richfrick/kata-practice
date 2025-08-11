@@ -10,4 +10,12 @@ function getItemsLongerThan(strArray, length) {
   }
 }
 
-module.exports = { getEvenNumbers, getItemsLongerThan };
+function getLastItems(array, num) {
+  if (num > 0) {
+    return array.slice(array.length - num);
+  } else {
+    return [];
+  }
+}
+
+module.exports = { getEvenNumbers, getItemsLongerThan, getLastItems };
