@@ -6,4 +6,8 @@ function getUserAge(userObj) {
   return new Date().getFullYear() - userObj.yearOfBirth;
 }
 
-module.exports = { isOver40, getUserAge };
+function getUserPetAge(userObj) {
+  return userObj.pet.age;
+}
+
+module.exports = { isOver40, getUserAge, getUserPetAge };
