@@ -1,4 +1,7 @@
-const { flipBooleans } = require('../katas/precourse/advanced-katas');
+const {
+  flipBooleans,
+  translateKey,
+} = require('../katas/precourse/advanced-katas');
 
 describe('Flipping Booleans', () => {
   test('Should be a function', () => {
@@ -29,5 +32,56 @@ describe('Flipping Booleans', () => {
     const input = [1, 2, 3, 'a'];
     const result = flipBooleans(input);
     expect(result).toEqual([]);
+  });
+  describe('Translate key values', () => {
+    test('Should be a function', () => {
+      expect(typeof translateKey).toBe('function');
+    });
+    test('Returns a new object', () => {
+      const input = {
+        prénom: 'Carla',
+        surname: 'Bruni',
+        job: 'Artist',
+      };
+      const result = translateKey(input, 'prénom', 'firstname');
+      expect(result).not.toBe(input);
+      expect(result).not.toEqual(input);
+    });
+    test('does not alter the input', () => {
+      const input = {
+        prénom: 'Carla',
+        surname: 'Bruni',
+        job: 'Artist',
+      };
+      translateKey(input, 'prénom', 'firstname');
+      expect(input).toEqual({
+        prénom: 'Carla',
+        surname: 'Bruni',
+        job: 'Artist',
+      });
+    });
+    test('removes and adds the correct key from the response object', () => {
+      const input = {
+        prénom: 'Carla',
+        surname: 'Bruni',
+        job: 'Artist',
+      };
+      const result = translateKey(input, 'prénom', 'firstname');
+      expect(result['prénom']).toBeFalsy();
+      expect(result['firstname']).toBeTruthy();
+    });
+    test('returns the student with the correct information', () => {
+      const input = {
+        prénom: 'Carla',
+        surname: 'Bruni',
+        job: 'Artist',
+      };
+      const result = translateKey(input, 'prénom', 'firstname');
+      expect(result).toEqual({
+        firstname: 'Carla',
+        surname: 'Bruni',
+        job: 'Artist',
+      });
+    });
   });
 });
